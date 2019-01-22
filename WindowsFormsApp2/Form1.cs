@@ -10,223 +10,69 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp2
 {
-    public partial class Form1 : Form
+    public partial class Calculator : Form
     {
 
-        double a = 0;
-        double b = 0;
-        double resultOf = 0;
-        string aS = "";
-        string aB = "";
+        Double value = 0;
+        String operation = "";
+        bool operationPressed = false;
 
-        public Form1()
+        public Calculator()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (label1.Text == "0")
-            {
-                label1.Text = "";
-            }
-            string temp = label1.Text;
-            if (temp.Length > 7)
-            {
-                label1.Text = label1.Text;
-            }
-            else
-                label1.Text = label1.Text + "7";
-        }
-
-        private void button16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-            Button button1 = (Button)sender;
-            if (label1.Text == "0")
-            {
-                label1.Text = "";
-            }
-            string temp = label1.Text;
-            if (temp.Length > 7 )
-            {
-                label1.Text = label1.Text;
-            }
-            else
-                label1.Text = label1.Text + button1.Text;
-        }
-
-        private void button15_Click(object sender, EventArgs e)
-        {
-            Button button0 = (Button)sender;
-            
-            string temp = label1.Text;
-            if (temp.Length > 7)
-            {
-                label1.Text = label1.Text;
-            }
-            else if(label1.Text != "0")
-                label1.Text = label1.Text + button0.Text;
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            Button button2 = (Button)sender;
-            if (label1.Text == "0")
-            {
-                label1.Text = "";
-            }
-            string temp = label1.Text;
-            if (temp.Length > 7)
-            {
-                label1.Text = label1.Text;
-            }
-            else
-                label1.Text = label1.Text + button2.Text;
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            Button button3 = (Button)sender;
-            if (label1.Text == "0")
-            {
-                label1.Text = "";
-            }
-            string temp = label1.Text;
-            if (temp.Length > 7)
-            {
-                label1.Text = label1.Text;
-            }
-            else
-                label1.Text = label1.Text + button3.Text;
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            Button button4 = (Button)sender;
-            if (label1.Text == "0")
-            {
-                label1.Text = "";
-            }
-            string temp = label1.Text;
-            if (temp.Length > 7)
-            {
-                label1.Text = label1.Text;
-            }
-            else
-                label1.Text = label1.Text + button4.Text;
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            Button button5 = (Button)sender;
-            if (label1.Text == "0")
-            {
-                label1.Text = "";
-            }
-            string temp = label1.Text;
-            if (temp.Length > 7)
-            {
-                label1.Text = label1.Text;
-            }
-            else
-                label1.Text = label1.Text + button5.Text;
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            Button button6 = (Button)sender;
-            if (label1.Text == "0")
-            {
-                label1.Text = "";
-            }
-            string temp = label1.Text;
-            if (temp.Length > 7)
-            {
-                label1.Text = label1.Text;
-            }
-            else
-                label1.Text = label1.Text + button6.Text;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Button button8 = (Button)sender;
-            if (label1.Text == "0")
-            {
-                label1.Text = "";
-            }
-            string temp = label1.Text;
-            if (temp.Length > 7)
-            {
-                label1.Text = label1.Text;
-            }
-            else
-                label1.Text = label1.Text + button8.Text;
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Button button9 = (Button)sender;
-
-            if (label1.Text == "0")
-            {
-                label1.Text = "";
-            }
-            string temp = label1.Text;
-            if (temp.Length > 7)
-            {
-                label1.Text = label1.Text;
-            }
-            else
-                label1.Text = label1.Text + button9.Text;
-        }
-
-        private void button14_Click(object sender, EventArgs e)
-        {
-            Button buttonComa = (Button)sender;
-
-            string temp = label1.Text;
-            if (temp.Length > 7)
-            {
-                label1.Text = label1.Text;
-            }
-            else 
-                label1.Text = label1.Text + buttonComa.Text;
-        }
 
         private void button18_Click(object sender, EventArgs e)
         {
-            label1.Text = "0";
-            a = 0;
-            aS = "0";
-            b = 0;
-            aB = "0";
+            textBox.Text = "0";
         }
 
         private void button17_Click_1(object sender, EventArgs e)
         {
-            label1.Text = label1.Text;
+           
         }
 
         private void operator_click(object sender, EventArgs e)
         {
+            Button button = (Button)sender;
+            operation = button.Text;
+            value = Double.Parse(textBox.Text);
+            operationPressed = true;
+        }
 
+        private void button_click(object sender, EventArgs e)
+        {
+            if (textBox.Text == "0" || (operationPressed))
+                textBox.Clear();
+            Button button = (Button)sender;
+            textBox.Text = textBox.Text + button.Text;
+        }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void result_click_Click(object sender, EventArgs e)
+        {
+            switch (operation)
+            {
+                case "+":
+                    textBox.Text = (value + Double.Parse(textBox.Text)).ToString();
+                    break;
+                case "-":
+                    textBox.Text = (value - Double.Parse(textBox.Text)).ToString();
+                    break;
+                case "/":
+                    textBox.Text = (value / Double.Parse(textBox.Text)).ToString();
+                    break;
+                case "*":
+                    textBox.Text = (value * Double.Parse(textBox.Text)).ToString();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
