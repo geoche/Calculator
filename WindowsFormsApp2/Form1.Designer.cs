@@ -99,6 +99,7 @@
             this.button4.TabIndex = 4;
             this.button4.Text = "+";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.operator_click);
             // 
             // button5
             // 
@@ -108,6 +109,7 @@
             this.button5.TabIndex = 8;
             this.button5.Text = "-";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.operator_click);
             // 
             // button6
             // 
@@ -147,6 +149,7 @@
             this.button9.TabIndex = 12;
             this.button9.Text = "*";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.operator_click);
             // 
             // button10
             // 
@@ -186,6 +189,7 @@
             this.button13.TabIndex = 16;
             this.button13.Text = "/";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.operator_click);
             // 
             // button14
             // 
@@ -215,6 +219,7 @@
             this.button17.TabIndex = 18;
             this.button17.Text = "C";
             this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click_1);
             // 
             // button18
             // 
@@ -224,6 +229,7 @@
             this.button18.TabIndex = 17;
             this.button18.Text = "CE";
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // button19
             // 

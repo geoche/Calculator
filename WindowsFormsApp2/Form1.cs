@@ -72,7 +72,15 @@ namespace WindowsFormsApp2
 
         private void button15_Click(object sender, EventArgs e)
         {
-
+            Button button0 = (Button)sender;
+            
+            string temp = label1.Text;
+            if (temp.Length > 7)
+            {
+                label1.Text = label1.Text;
+            }
+            else if(label1.Text != "0")
+                label1.Text = label1.Text + button0.Text;
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -190,6 +198,34 @@ namespace WindowsFormsApp2
 
         private void button14_Click(object sender, EventArgs e)
         {
+            Button buttonComa = (Button)sender;
+
+            string temp = label1.Text;
+            if (temp.Length > 7)
+            {
+                label1.Text = label1.Text;
+            }
+            else 
+                label1.Text = label1.Text + buttonComa.Text;
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            label1.Text = "0";
+            a = 0;
+            aS = "0";
+            b = 0;
+            aB = "0";
+        }
+
+        private void button17_Click_1(object sender, EventArgs e)
+        {
+            label1.Text = label1.Text;
+        }
+
+        private void operator_click(object sender, EventArgs e)
+        {
+
 
         }
     }
