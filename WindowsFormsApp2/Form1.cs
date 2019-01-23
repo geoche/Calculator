@@ -23,9 +23,12 @@ namespace WindowsFormsApp2
         }
 
 
-        private void button18_Click(object sender, EventArgs e)
+        private void button18_Click(object sender, EventArgs e) // CE button
         {
             textBox.Text = "0";
+            value = 0;
+            operation = "";
+            
         }
 
         private void button17_Click_1(object sender, EventArgs e)
@@ -33,7 +36,7 @@ namespace WindowsFormsApp2
            
         }
 
-        private void operator_click(object sender, EventArgs e)
+        private void operator_click(object sender, EventArgs e) // RESULT button 
         {
             Button button = (Button)sender;
             operation = button.Text;
@@ -41,12 +44,21 @@ namespace WindowsFormsApp2
             operationPressed = true;
         }
 
-        private void button_click(object sender, EventArgs e)
+        private void button_click(object sender, EventArgs e) //global method for numberbuttons
         {
-            if (textBox.Text == "0" || (operationPressed))
+
+            Button button = (Button)sender; 
+            if (textBox.Text == "0" || (operationPressed == true)) 
                 textBox.Clear();
-            Button button = (Button)sender;
-            textBox.Text = textBox.Text + button.Text;
+            if (button.Text == ".")
+            {
+                if (!textBox.Text.Contains(".")) 
+                    textBox.Text = textBox.Text + button.Text;
+            }
+            else
+                textBox.Text = textBox.Text + button.Text;
+
+            operationPressed = false;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -54,7 +66,7 @@ namespace WindowsFormsApp2
 
         }
 
-        private void result_click_Click(object sender, EventArgs e)
+        private void result_click_Click(object sender, EventArgs e) // switch case for every math operations
         {
             switch (operation)
             {
